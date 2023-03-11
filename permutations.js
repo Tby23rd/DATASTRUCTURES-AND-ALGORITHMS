@@ -20,4 +20,3 @@ const rest = elements.slice(1);
 };
 
 permutations(['a','b','c']);
-
