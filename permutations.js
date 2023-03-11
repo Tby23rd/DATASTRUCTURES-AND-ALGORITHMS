@@ -1,22 +1,24 @@
-const permutations =(elements) =>{
-if(elements.length == 0) return [[]];
+const perms = (words) =>{
+if(words.length == 0) return [[]];
 
-const firstEl = elements [0];
-const rest = elements.slice(1);
- const permsWithoutFirst = permutations(rest);
-//console.log(permsWithoutFirst[i]);
- const allPerms = [];
+const first = words[0];
 
- permsWithoutFirst.forEach(perm =>{
-    for(let i =0; i<=perm.length;i++){
-        const permWithFirst = [...perm.slice(0,i),
-        firstEl,...perm.slice(i)];
-        allPerms.push(permWithFirst);
-        console.log(permWithFirst);
+const rest = words.slice(1);
+
+const permsWithoutFirst = perms(rest);
+
+const allperms = [];
+
+permsWithoutFirst.forEach(permutation =>{
+    for(let i =0; i<=permutation.length;i++){
+        const permsWithFirst = [...permutation.slice(0,i), first, ...permutation.slice(i)];
+        allperms.push(permsWithFirst);
+            console.log(allperms);
     }
- })
- console.log(allPerms);
- return allPerms;
+})
+
+return allperms;
+
 };
 
-permutations(['a','b','c']);
+perms(['a','d','g','t']);
